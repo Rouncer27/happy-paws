@@ -1,7 +1,7 @@
 const themeFonts = {
-  fontPrimary: "Playfair Display",
-  fontSecondary: "Elsie Swash Caps",
-  fontTertiary: "Cookie",
+  fontPrimary: "Roboto Slab",
+  fontSecondary: "Roboto Slab",
+  fontTertiary: "Roboto Slab",
   fontAwesome: "FontAwesome",
   baseLineHeight: "1.5",
 }

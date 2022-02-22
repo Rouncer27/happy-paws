@@ -31,7 +31,7 @@ export const B1Blue = css`
 
 // Body copy TWO //
 export const B2Base = css`
-  ${fontSizer(1.4, 1.6, 76.8, 150, 1.8)};
+  ${fontSizer(1.4, 1.9, 76.8, 150, 1.8)};
   font-family: ${fonts.fontPrimary};
   font-weight: normal;
   font-stretch: normal;
@@ -57,7 +57,7 @@ export const B2Blue = css`
 
 // Body copy TWO //
 export const B3Base = css`
-  ${fontSizer(1.6, 2, 76.8, 150, 1.8)};
+  ${fontSizer(1.6, 1.8, 76.8, 150, 1.8)};
   font-family: ${fonts.fontSecondary};
   font-weight: normal;
   font-stretch: normal;

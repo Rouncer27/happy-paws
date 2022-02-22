@@ -5,8 +5,7 @@ import fonts from "./fonts"
 
 // Headline Styles #1 //
 export const H1Base = css`
-  ${fontSizer(6, 10, 76.8, 150, 5)};
-  font-family: ${fonts.fontSecondary};
+  ${fontSizer(2.4, 4.2, 76.8, 150, 2.4)};
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -24,14 +23,14 @@ export const H1White = css`
   color: ${colors.white};
 `
 
-export const H1Blue = css`
+export const H1Orange = css`
   ${H1Base};
-  color: ${colors.colorSecondary};
+  color: ${colors.colorPrimary};
 `
 
 // Headline Styles #2 //
 export const H2Base = css`
-  ${fontSizer(4, 7.5, 76.8, 150, 3)};
+  ${fontSizer(2, 2.5, 76.8, 150, 2)};
   font-family: ${fonts.fontSecondary};
   font-weight: normal;
   font-stretch: normal;
@@ -50,7 +49,7 @@ export const H2Black = css`
   color: ${colors.black};
 `
 
-export const H2Blue = css`
+export const H2Grey = css`
   ${H2Base};
   color: ${colors.colorSecondary};
 `
