@@ -10,6 +10,7 @@ import HeroPage from "../components/templates/home/HeroPage"
 import Values from "../components/templates/home/Values"
 import Gallery from "../components/templates/home/Gallery"
 import Positions from "../components/templates/home/Positions"
+import Video from "../components/templates/home/Video"
 
 const IndexPage = props => {
   const {
@@ -22,6 +23,7 @@ const IndexPage = props => {
     gallery,
     howToApply,
     positions,
+    video,
   } = props.data
   const heroData = hero.template.HomePage
   console.log(seoInfo)
@@ -39,6 +41,7 @@ const IndexPage = props => {
         data={howToApply.template.HomePage}
         positions={positions.edges}
       />
+      <Video data={video.template.HomePage} />
     </Layout>
   )
 }
@@ -268,6 +271,17 @@ export const homeQuery = graphql`
           acfJobPostings {
             minimumQualifications
             summaryPosition
+          }
+        }
+      }
+    }
+
+    video: wpPage(slug: { eq: "home" }) {
+      template {
+        ... on WpTemplate_Home {
+          HomePage {
+            videoTitle
+            videoEmbed
           }
         }
       }
