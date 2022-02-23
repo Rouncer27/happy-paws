@@ -31,14 +31,14 @@ const Btn1Base = css`
 
 export const Btn1Blue = css`
   ${Btn1Base};
-  background: ${colors.colorSecondary};
-  border: solid 0.1rem ${colors.colorSecondary};
+  background: ${colors.colorPrimary};
+  border: solid 0.1rem ${colors.colorPrimary};
   color: ${colors.white};
 
   &:hover {
     background: ${colors.colorAccent};
     border-color: ${colors.colorAccent};
-    color: ${colors.colorShad};
+    color: ${colors.white};
   }
 
   &:focus {

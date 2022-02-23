@@ -4,15 +4,19 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
 import Hero from "../components/templates/home/Hero"
+import About from "../components/templates/home/About"
+import Why from "../components/templates/home/Why"
 
 const IndexPage = props => {
-  const { hero, seoInfo } = props.data
+  const { seoInfo, hero, about, why } = props.data
   const heroData = hero.template.HomePage
 
   return (
     <Layout>
       <Seo title="Home" />
       <Hero data={heroData} />
+      <About data={about.template.HomePage} />
+      <Why data={why.template.HomePage} />
     </Layout>
   )
 }
@@ -62,6 +66,32 @@ export const homeQuery = graphql`
                 }
               }
             }
+          }
+        }
+      }
+    }
+
+    about: wpPage(slug: { eq: "home" }) {
+      template {
+        ... on WpTemplate_Home {
+          HomePage {
+            aboutTitle
+            aboutContent
+            aboutButtonText
+            aboutButtonUrl
+            aboutFacebookUrl
+            aboutInstagramUrl
+          }
+        }
+      }
+    }
+
+    why: wpPage(slug: { eq: "home" }) {
+      template {
+        ... on WpTemplate_Home {
+          HomePage {
+            whyTitle
+            whyContent
           }
         }
       }
