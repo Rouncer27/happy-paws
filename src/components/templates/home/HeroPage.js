@@ -37,14 +37,17 @@ const StyledSection = styled.section`
   align-items: center;
   justify-content: center;
   position: relative;
+  margin-bottom: 5rem;
   height: 30rem;
 
   @media (min-width: 768px) {
     height: 45rem;
+    margin-bottom: 10rem;
   }
 
   @media (min-width: 1025px) {
     height: 50rem;
+    margin-bottom: 15rem;
   }
 
   .overlay {
