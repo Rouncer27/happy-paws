@@ -6,10 +6,12 @@ import Seo from "../components/Seo"
 import Hero from "../components/templates/home/Hero"
 import About from "../components/templates/home/About"
 import Why from "../components/templates/home/Why"
+import HeroPage from "../components/templates/home/HeroPage"
 
 const IndexPage = props => {
-  const { seoInfo, hero, about, why } = props.data
+  const { seoInfo, hero, about, why, heroPage } = props.data
   const heroData = hero.template.HomePage
+  console.log(seoInfo)
 
   return (
     <Layout>
@@ -17,6 +19,7 @@ const IndexPage = props => {
       <Hero data={heroData} />
       <About data={about.template.HomePage} />
       <Why data={why.template.HomePage} />
+      <HeroPage data={heroPage.template.HomePage} />
     </Layout>
   )
 }
@@ -92,6 +95,34 @@ export const homeQuery = graphql`
           HomePage {
             whyTitle
             whyContent
+          }
+        }
+      }
+    }
+
+    heroPage: wpPage(slug: { eq: "home" }) {
+      template {
+        ... on WpTemplate_Home {
+          HomePage {
+            heroPageContent
+            heroPageLogo {
+              altText
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1250)
+                }
+              }
+            }
+            heroPageImage {
+              altText
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1250)
+                }
+              }
+            }
           }
         }
       }
