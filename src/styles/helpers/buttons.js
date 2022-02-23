@@ -56,3 +56,31 @@ export const Btn1Blue = css`
     }
   }
 `
+
+export const Btn1Black = css`
+  ${Btn1Base};
+  background: ${colors.black};
+  border: solid 0.1rem ${colors.black};
+  color: ${colors.white};
+
+  &:hover {
+    background: ${colors.colorAccent};
+    border-color: ${colors.colorAccent};
+    color: ${colors.white};
+  }
+
+  &:focus {
+    outline: 0.4rem solid #003b49;
+    transition: all 0.35s ease-in-out;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+
+    &:hover {
+      background: ${colors.colorSecondary};
+      color: ${colors.white};
+      cursor: not-allowed;
+    }
+  }
+`

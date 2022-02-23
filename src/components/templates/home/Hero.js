@@ -7,7 +7,6 @@ import HeroImage from "../common/HeroImage"
 
 const Hero = ({ data }) => {
   const bgImg = data.heroImage
-  console.log(data)
   const logoDisplay = getImage(
     data.heroLogo.localFile.childImageSharp.gatsbyImageData
   )

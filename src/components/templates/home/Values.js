@@ -4,7 +4,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { B2Black, B3Black, H1Orange, medWrapper } from "../../../styles/helpers"
 
 const Values = ({ data }) => {
-  console.log("values", data)
   return (
     <SectionStyled>
       <div className="wrapper">

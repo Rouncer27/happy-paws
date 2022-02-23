@@ -8,9 +8,21 @@ import About from "../components/templates/home/About"
 import Why from "../components/templates/home/Why"
 import HeroPage from "../components/templates/home/HeroPage"
 import Values from "../components/templates/home/Values"
+import Gallery from "../components/templates/home/Gallery"
+import Positions from "../components/templates/home/Positions"
 
 const IndexPage = props => {
-  const { seoInfo, hero, about, why, heroPage, values } = props.data
+  const {
+    seoInfo,
+    hero,
+    about,
+    why,
+    heroPage,
+    values,
+    gallery,
+    howToApply,
+    positions,
+  } = props.data
   const heroData = hero.template.HomePage
   console.log(seoInfo)
 
@@ -22,6 +34,11 @@ const IndexPage = props => {
       <Why data={why.template.HomePage} />
       <HeroPage data={heroPage.template.HomePage} />
       <Values data={values.template.HomePage} />
+      <Gallery data={gallery.template.HomePage} />
+      <Positions
+        data={howToApply.template.HomePage}
+        positions={positions.edges}
+      />
     </Layout>
   )
 }
@@ -148,6 +165,109 @@ export const homeQuery = graphql`
                 }
               }
             }
+          }
+        }
+      }
+    }
+
+    gallery: wpPage(slug: { eq: "home" }) {
+      template {
+        ... on WpTemplate_Home {
+          HomePage {
+            imageGalleryLeft {
+              altText
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1000)
+                }
+              }
+            }
+
+            imageGalleryCenterTop {
+              altText
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1000)
+                }
+              }
+            }
+
+            imageGalleryCenterBottom {
+              altText
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1000)
+                }
+              }
+            }
+
+            imageGalleryRightTopSmallOne {
+              altText
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1000)
+                }
+              }
+            }
+
+            imageGalleryRightTopSmallTwo {
+              altText
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1000)
+                }
+              }
+            }
+
+            imageGalleryRightTopSmallThree {
+              altText
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1000)
+                }
+              }
+            }
+
+            imageGalleryRightBottom {
+              altText
+              localFile {
+                url
+                childImageSharp {
+                  gatsbyImageData(width: 1000)
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    howToApply: wpPage(slug: { eq: "home" }) {
+      template {
+        ... on WpTemplate_Home {
+          HomePage {
+            howToApplyTitle
+            howToApplyContent
+            howToApplyButtonText
+            howToApplyEmail
+          }
+        }
+      }
+    }
+
+    positions: allWpJobPosting {
+      edges {
+        node {
+          title
+          acfJobPostings {
+            minimumQualifications
+            summaryPosition
           }
         }
       }
