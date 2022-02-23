@@ -14,10 +14,7 @@ import {
 } from "../../../styles/helpers"
 
 const Positions = ({ data, positions }) => {
-  console.log("positions", positions)
-
   const [activeIndex, setActiveIndex] = useState(0)
-
   return (
     <SectionStyled>
       <div className="wrapper">
