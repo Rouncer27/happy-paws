@@ -20,7 +20,7 @@ const HeroPage = ({ data }) => {
       })
       .add("start")
       .fromTo(
-        "#page-hero-trigger .hero-content",
+        "#page-hero-trigger .hero-page-content",
         {
           autoAlpha: 0,
           y: 200,
@@ -42,7 +42,7 @@ const HeroPage = ({ data }) => {
   return (
     <StyledSection id="page-hero-trigger">
       <HeroImage bgImg={bgImg} />
-      <div className="hero-content">
+      <div className="hero-content hero-page-content">
         <div className="hero-logo">
           <GatsbyImage
             image={logoDisplay}
