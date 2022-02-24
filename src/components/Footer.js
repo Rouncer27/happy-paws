@@ -111,28 +111,50 @@ const FooterStyled = styled.footer`
 
   .wrapper {
     ${medWrapper};
-    margin: 0 2rem;
-    padding: 0 2rem;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    padding: 0;
+
+    @media (min-width: 768px) {
+      margin: 0 2rem;
+      padding: 0 2rem;
+    }
   }
 
   .links {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding: 5rem 0;
+    width: 100%;
+    padding: 4rem 2rem;
     background-color: ${colors.black};
 
     @media (min-width: 768px) {
       width: calc(75%);
+      padding: 5rem 0;
     }
 
     &__website {
-      width: 30%;
+      width: 100%;
+      margin-bottom: 5rem;
+      text-align: center;
+
+      @media (min-width: 768px) {
+        width: 30%;
+        margin-bottom: 0;
+        text-align: left;
+      }
       h3 {
         ${B1White};
         margin: 0;
         margin-bottom: 1rem;
+
         text-transform: uppercase;
+
+        @media (min-width: 768px) {
+          text-align: left;
+        }
       }
 
       a {
@@ -141,7 +163,13 @@ const FooterStyled = styled.footer`
     }
 
     &__social {
-      width: 65%;
+      width: 100%;
+      text-align: center;
+
+      @media (min-width: 768px) {
+        width: 65%;
+        text-align: left;
+      }
 
       p {
         ${B1White};
@@ -156,11 +184,13 @@ const FooterStyled = styled.footer`
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5rem 3rem;
+    width: 100%;
+    padding: 5rem 12.5rem;
     background-color: ${colors.white};
 
     @media (min-width: 768px) {
       width: calc(25%);
+      padding: 5rem 3rem;
     }
 
     &__wrappper {

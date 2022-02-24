@@ -47,7 +47,7 @@ const StyledSection = styled.section`
 
   @media (min-width: 1025px) {
     height: 50rem;
-    margin-bottom: 15rem;
+    margin-bottom: 10rem;
   }
 
   .overlay {
@@ -58,9 +58,6 @@ const StyledSection = styled.section`
     height: 100%;
     background-color: rgba(46, 46, 46, 0.85);
     z-index: 5;
-  }
-
-  .hero-logo {
   }
 
   .hero-content {

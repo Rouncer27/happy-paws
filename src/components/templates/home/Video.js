@@ -44,6 +44,11 @@ const VideoSection = styled.section`
 
     p {
       text-align: center;
+
+      iframe {
+        width: 100% !important;
+        max-width: 500px !important;
+      }
     }
   }
 `

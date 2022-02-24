@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 import styled from "styled-components"
 import {
@@ -32,7 +33,13 @@ const Positions = ({ data, positions }) => {
               return (
                 <ListItem activeposition={index === activeIndex} key={index}>
                   <span>{position.node.title}</span>{" "}
-                  <button type="button" onClick={() => setActiveIndex(index)}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveIndex(index)
+                      scrollTo("#current-position")
+                    }}
+                  >
                     Learn More
                   </button>
                 </ListItem>
@@ -50,7 +57,7 @@ const Positions = ({ data, positions }) => {
               </a>
             </div>
           </div>
-          <div className="position-display__current">
+          <div id="current-position" className="position-display__current">
             <div className="position-display__current--title">
               <h3>{positions[activeIndex].node.title}</h3>
             </div>
@@ -95,7 +102,10 @@ const SectionStyled = styled.section`
 
     h2 {
       ${H1Orange};
-      margin: 0;
+
+      @media (min-width: 768px) {
+        margin: 0;
+      }
     }
 
     p {
@@ -119,9 +129,18 @@ const SectionStyled = styled.section`
     width: 100%;
 
     &__how-to {
-      width: 30%;
+      width: 100%;
+      margin-top: 2.5rem;
       padding: 2rem;
       background-color: ${colors.colorPrimary};
+
+      @media (min-width: 768px) {
+        width: 30%;
+        margin-top: 0;
+      }
+
+      @media (min-width: 1025px) {
+      }
 
       h3 {
         ${H1White};
@@ -137,8 +156,17 @@ const SectionStyled = styled.section`
     }
 
     &__current {
-      width: 70%;
-      padding: 0 6rem;
+      width: 100%;
+      margin-top: 2.5rem;
+
+      @media (min-width: 768px) {
+        width: 70%;
+        margin-top: 0;
+        padding: 0 6rem;
+      }
+
+      @media (min-width: 1025px) {
+      }
 
       &--title {
         h3 {
