@@ -61,10 +61,11 @@ const SectionStyled = styled.section`
 `
 
 const Value = styled.div`
-  width: 50%;
+  width: calc(100% - 4rem);
+  margin: 2rem;
 
   @media (min-width: 768px) {
-    width: calc(33.3333% - 4rem);
+    width: calc(50% - 4rem);
     margin: 2rem;
   }
 

@@ -147,39 +147,48 @@ const SectionStyled = styled.section`
   }
 
   .images-center {
+    display: flex;
     position: relative;
     width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 
     @media (min-width: 768px) {
       width: calc(20% - 1.8rem);
+      margin-top: 0;
+      margin-bottom: 0;
       margin-left: 1.8rem;
     }
 
     &__container--top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 23rem;
+      @media (min-width: 768px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 23rem;
+      }
     }
 
     &__container--bottom {
-      position: absolute;
-      top: 25rem;
-      bottom: 0;
-      left: 0;
-      width: 100%;
+      @media (min-width: 768px) {
+        position: absolute;
+        top: 25rem;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
     }
   }
 
   .images-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     position: relative;
     width: 100%;
 
     @media (min-width: 768px) {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
       width: calc(40% - 1.8rem);
       margin-left: 1.8rem;
     }
@@ -190,65 +199,102 @@ const SectionStyled = styled.section`
       margin-bottom: 1.8rem;
 
       &--topone {
-        position: absolute;
-        top: 0;
-        left: 0;
+        @media (min-width: 768px) {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
       }
 
       &--toptwo {
-        position: absolute;
-        top: 0;
-        left: 33.333333%;
+        @media (min-width: 768px) {
+          position: absolute;
+          top: 0;
+          left: 33.333333%;
+        }
       }
 
       &--topthree {
-        position: absolute;
-        top: 0;
-        left: 66.666666%;
+        position: relative;
+        @media (min-width: 768px) {
+          position: absolute;
+          top: 0;
+          left: 66.666666%;
+        }
 
         .gatsby-image-wrapper {
-          top: 1.5rem;
-          right: 1.5rem;
-          bottom: 1.5rem;
-          left: 1.5rem;
-          width: auto;
-          height: auto;
+          top: 2rem;
+          right: 2rem;
+          bottom: 2rem;
+          left: 2rem;
+          width: calc(100% - 4rem);
+          height: calc(100% - 4rem);
+
+          @media (min-width: 768px) {
+            top: 1.5rem;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            width: auto;
+            height: auto;
+          }
         }
       }
     }
 
     &__bottom {
-      position: absolute;
-      top: 14rem;
-      bottom: 0;
-      left: 0;
-      width: 100%;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+
+      @media (min-width: 768px) {
+        position: absolute;
+        top: 14rem;
+        bottom: 0;
+        left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 100%;
+      }
     }
   }
 
   .ellipse-graphic {
     position: absolute;
-    bottom: -5rem;
+    bottom: 25rem;
     left: -5rem;
     width: 27rem;
     height: 27rem;
     z-index: -1;
+
+    @media (min-width: 768px) {
+      bottom: 5rem;
+      left: -5rem;
+    }
+
+    @media (min-width: 1025px) {
+      bottom: -5rem;
+      left: -5rem;
+    }
   }
 `
 
 const DivStyled = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
 
-  .gatsby-image-wrapper {
+  @media (min-width: 768px) {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+
+    .gatsby-image-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 `
 

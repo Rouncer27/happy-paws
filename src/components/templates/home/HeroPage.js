@@ -38,7 +38,7 @@ const StyledSection = styled.section`
   justify-content: center;
   position: relative;
   margin-bottom: 5rem;
-  height: 30rem;
+  height: 55rem;
 
   @media (min-width: 768px) {
     height: 45rem;
@@ -66,11 +66,18 @@ const StyledSection = styled.section`
   .hero-content {
     position: absolute;
     top: 5rem;
-    left: 5rem;
-    width: 45rem;
+    right: 2rem;
+    left: 2rem;
     padding: 2rem 4rem;
     background-color: ${colors.white};
     z-index: 10;
+
+    @media (min-width: 768px) {
+      top: 5rem;
+      left: 5rem;
+      width: 45rem;
+      box-shadow: 0.5rem 0.5rem 0.75rem 0.25rem rgba(0, 0, 0, 0.25);
+    }
 
     .hero-logo {
       max-width: 19rem;

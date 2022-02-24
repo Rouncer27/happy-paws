@@ -93,6 +93,7 @@ const StyledSection = styled.section`
 
     a.web-link {
       ${Btn1Blue};
+      text-transform: uppercase;
     }
 
     ul {

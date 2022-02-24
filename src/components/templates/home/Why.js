@@ -27,7 +27,9 @@ const StyledSection = styled.section`
 
   .title {
     width: 100%;
-    text-align: center;
+    @media (min-width: 768px) {
+      text-align: center;
+    }
 
     h2 {
       ${H1Orange};
@@ -36,7 +38,15 @@ const StyledSection = styled.section`
 
   .content {
     width: 100%;
-    padding: 0 5rem;
+    padding: 0;
+
+    @media (min-width: 768px) {
+      padding: 0 2.5rem;
+    }
+
+    @media (min-width: 1025px) {
+      padding: 0 5rem;
+    }
 
     p {
       ${B1Black};

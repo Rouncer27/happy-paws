@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { colors, H1Orange } from "../../../styles/helpers"
-
 import HeroImage from "../common/HeroImage"
 
 const Hero = ({ data }) => {
@@ -41,7 +40,6 @@ const Hero = ({ data }) => {
           formats={["auto", "webp", "avif"]}
         />
       </div>
-      <div className="overlay" />
     </StyledSection>
   )
 }
@@ -51,7 +49,7 @@ const StyledSection = styled.section`
   align-items: center;
   justify-content: center;
   position: relative;
-  height: 30rem;
+  height: 45rem;
 
   @media (min-width: 768px) {
     height: 45rem;
@@ -75,23 +73,45 @@ const StyledSection = styled.section`
     position: absolute;
     top: 0;
     left: 10%;
-    width: 25rem;
-    height: 25rem;
+    width: 15rem;
+    height: 15rem;
     padding: 3.5rem;
     background-color: ${colors.white};
     z-index: 10;
+
+    @media (min-width: 768px) {
+      width: 15rem;
+      height: 15rem;
+    }
+
+    @media (min-width: 1025px) {
+      width: 25rem;
+      height: 25rem;
+    }
   }
 
   .hero-circle {
     position: absolute;
-    top: 5rem;
+    top: 2rem;
     right: 5%;
-    width: 50rem;
-    height: 50rem;
+    width: 17.5rem;
+    height: 17.5rem;
     border-radius: 50%;
     box-shadow: 0.5rem 0.5rem 0.5rem 0.25rem rgba(0, 0, 0, 0.4);
     overflow: hidden;
     z-index: 10;
+
+    @media (min-width: 768px) {
+      top: 5rem;
+      width: 30rem;
+      height: 30rem;
+    }
+
+    @media (min-width: 1025px) {
+      top: 10rem;
+      width: 55rem;
+      height: 55rem;
+    }
   }
 
   .hero-content {
@@ -103,16 +123,23 @@ const StyledSection = styled.section`
     left: 50%;
     width: 100%;
     padding: 2.5rem;
+    transform: translate(-50%, 0%);
     z-index: 100;
     text-align: center;
 
     @media (min-width: 768px) {
       display: block;
-      bottom: 5rem;
+      top: auto;
+      bottom: 12.5rem;
       left: 10%;
       width: 45rem;
       padding: 0;
+      transform: translate(0, 0);
       text-align: left;
+    }
+
+    @media (min-width: 1025px) {
+      bottom: 20rem;
     }
 
     &__main {
