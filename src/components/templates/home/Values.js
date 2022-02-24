@@ -1,11 +1,43 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { B2Black, B3Black, H1Orange, medWrapper } from "../../../styles/helpers"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const Values = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#values-trigger",
+          markers: false,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        "#values-trigger .value-item",
+        {
+          autoAlpha: 0,
+          y: 200,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1,
+          stagger: {
+            each: 0.3,
+          },
+        }
+      )
+  }, [])
+
   return (
-    <SectionStyled>
+    <SectionStyled id="values-trigger">
       <div className="wrapper">
         <div className="title">
           <h2>{data.valuesTitle}</h2>
@@ -16,7 +48,7 @@ const Values = ({ data }) => {
               value.icon.localFile.childImageSharp.gatsbyImageData
             )
             return (
-              <Value key={index}>
+              <Value className="value-item" key={index}>
                 <div className="icon">
                   <GatsbyImage
                     image={iconDisplay}

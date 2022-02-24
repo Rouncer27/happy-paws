@@ -1,10 +1,53 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { standardWrapper, H1Orange, B1Black } from "../../../styles/helpers"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const Why = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#why-trigger",
+          markers: false,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        "#why-trigger .title",
+        {
+          autoAlpha: 0,
+          x: 150,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 1,
+        }
+      )
+      .fromTo(
+        "#why-trigger .content",
+        {
+          autoAlpha: 0,
+          x: -150,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 1,
+        },
+        "start+=0.25"
+      )
+  }, [])
+
   return (
-    <StyledSection>
+    <StyledSection id="why-trigger">
       <div className="wrapper">
         <div className="title">
           <h2>{data.whyTitle}</h2>

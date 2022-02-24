@@ -1,17 +1,46 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { B1Black, colors } from "../../../styles/helpers"
 import HeroImage from "../common/HeroImage"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const HeroPage = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#page-hero-trigger",
+          markers: false,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        "#page-hero-trigger .hero-content",
+        {
+          autoAlpha: 0,
+          y: 200,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1,
+        }
+      )
+  }, [])
+
   const bgImg = data.heroPageImage
   const logoDisplay = getImage(
     data.heroPageLogo.localFile.childImageSharp.gatsbyImageData
   )
   const logoAlt = data.heroPageLogo.altText
   return (
-    <StyledSection>
+    <StyledSection id="page-hero-trigger">
       <HeroImage bgImg={bgImg} />
       <div className="hero-content">
         <div className="hero-logo">

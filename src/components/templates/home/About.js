@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import {
   Btn1Blue,
@@ -9,10 +9,77 @@ import {
 } from "../../../styles/helpers"
 import Facebook from "../../Icons/Facebook"
 import Instagram from "../../Icons/Instagram"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const About = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#about-trigger",
+          markers: false,
+          start: "top 60%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        "#about-trigger .title",
+        {
+          autoAlpha: 0,
+          y: 150,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1,
+        }
+      )
+      .fromTo(
+        "#about-trigger .content",
+        {
+          autoAlpha: 0,
+          y: 150,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1,
+        },
+        "start+=0.25"
+      )
+      .fromTo(
+        "#about-trigger .links a",
+        {
+          autoAlpha: 0,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          duration: 1,
+        },
+        "start+=0.75"
+      )
+      .fromTo(
+        "#about-trigger .links ul",
+        {
+          autoAlpha: 0,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          duration: 1,
+        },
+        "start+=0.75"
+      )
+  }, [])
+
   return (
-    <StyledSection>
+    <StyledSection id="about-trigger">
       <div className="wrapper">
         <div className="title">
           <h2>{data.aboutTitle}</h2>

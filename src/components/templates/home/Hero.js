@@ -1,10 +1,53 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { colors, H1Orange } from "../../../styles/helpers"
 import HeroImage from "../common/HeroImage"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const Hero = ({ data }) => {
+  useEffect(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#hero-trigger",
+          markers: false,
+          start: "top 35%",
+          toggleActions: "play none none none",
+        },
+      })
+      .add("start")
+      .fromTo(
+        ".hero-circle",
+        {
+          autoAlpha: 0,
+          x: 150,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          x: 0,
+          duration: 1,
+        }
+      )
+      .fromTo(
+        ".hero-content",
+        {
+          autoAlpha: 0,
+          y: 150,
+          duration: 1,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 1,
+        },
+        "start+=0.25"
+      )
+  }, [])
+
   const bgImg = data.heroImage
   const logoDisplay = getImage(
     data.heroLogo.localFile.childImageSharp.gatsbyImageData
@@ -16,7 +59,7 @@ const Hero = ({ data }) => {
   )
   const circleAlt = data.heroCircleImage.altText
   return (
-    <StyledSection>
+    <StyledSection id="hero-trigger">
       <HeroImage bgImg={bgImg} />
       <div className="hero-logo">
         <GatsbyImage
@@ -99,6 +142,7 @@ const StyledSection = styled.section`
     border-radius: 50%;
     box-shadow: 0.5rem 0.5rem 0.5rem 0.25rem rgba(0, 0, 0, 0.4);
     overflow: hidden;
+    opacity: 0;
     z-index: 10;
 
     @media (min-width: 768px) {
@@ -124,8 +168,9 @@ const StyledSection = styled.section`
     width: 100%;
     padding: 2.5rem;
     transform: translate(-50%, 0%);
-    z-index: 100;
     text-align: center;
+    opacity: 0;
+    z-index: 100;
 
     @media (min-width: 768px) {
       display: block;
