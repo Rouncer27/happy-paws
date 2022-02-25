@@ -14,6 +14,8 @@ import {
   standardWrapper,
 } from "../../../styles/helpers"
 
+import backgroundpatteren from "../../../images/background-pattern.png"
+
 const Positions = ({ data, positions }) => {
   const [activeIndex, setActiveIndex] = useState(0)
   return (
@@ -83,13 +85,30 @@ const Positions = ({ data, positions }) => {
           </div>
         </div>
       </div>
+      <div className="background-patteren" />
     </SectionStyled>
   )
 }
 
 const SectionStyled = styled.section`
+  position: relative;
+  z-index: 5;
+
   .wrapper {
     ${standardWrapper};
+  }
+
+  .background-patteren {
+    position: absolute;
+    top: -15rem;
+    right: -2rem;
+    left: -2rem;
+    height: 67.5rem;
+    background-image: url(${backgroundpatteren});
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -1;
   }
 
   .title {
@@ -176,6 +195,8 @@ const SectionStyled = styled.section`
 
       &--summary,
       &--qualifications {
+        margin-bottom: 5rem;
+
         h4 {
           ${H2Black};
         }
@@ -201,6 +222,7 @@ const ListItem = styled.li`
     border: none;
     transition: all 0.3s ease;
     cursor: pointer;
+    background-color: transparent;
     color: ${props =>
       props.activeposition ? colors.colorPrimary : colors.black};
 

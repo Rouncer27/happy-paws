@@ -47,7 +47,7 @@ const VideoSection = styled.section`
 
       iframe {
         width: 100% !important;
-        max-width: 500px !important;
+        max-width: 700px !important;
       }
     }
   }

@@ -34,6 +34,22 @@ const Values = ({ data }) => {
           },
         }
       )
+      .fromTo(
+        "#values-trigger .value-item .icon",
+        {
+          rotation: "30deg",
+        },
+        {
+          rotation: "-30deg",
+          duration: 1,
+          stagger: {
+            each: 0.15,
+            yoyo: true,
+            repeat: -1,
+          },
+        },
+        "start"
+      )
   }, [])
 
   return (
@@ -110,6 +126,7 @@ const Value = styled.div`
     width: 8rem;
     height: 8rem;
     margin: auto;
+    transform: rotate("0deg");
   }
 
   h3 {

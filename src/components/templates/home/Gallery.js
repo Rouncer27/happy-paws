@@ -133,6 +133,7 @@ const Gallery = ({ data }) => {
 
 const SectionStyled = styled.section`
   position: relative;
+  z-index: 10;
 
   .wrapper {
     ${medWrapper};
