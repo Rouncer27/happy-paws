@@ -63,25 +63,44 @@ const Positions = ({ data, positions }) => {
             <div className="position-display__current--title">
               <h3>{positions[activeIndex].node.title}</h3>
             </div>
-            <div className="position-display__current--summary">
-              <h4>Summary of Position</h4>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html:
-                    positions[activeIndex].node.acfJobPostings.summaryPosition,
-                }}
-              />
-            </div>
-            <div className="position-display__current--qualifications">
-              <h4>Minimum Qualifications</h4>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html:
-                    positions[activeIndex].node.acfJobPostings
-                      .minimumQualifications,
-                }}
-              />
-            </div>
+            {positions[activeIndex].node.acfJobPostings.summaryPosition ? (
+              <div className="position-display__current--summary">
+                <h4>What we are looking for?</h4>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      positions[activeIndex].node.acfJobPostings
+                        .summaryPosition,
+                  }}
+                />
+              </div>
+            ) : null}
+
+            {positions[activeIndex].node.acfJobPostings.whatWeOffer ? (
+              <div className="position-display__current--qualifications">
+                <h4>What do we offer you?</h4>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      positions[activeIndex].node.acfJobPostings.whatWeOffer,
+                  }}
+                />
+              </div>
+            ) : null}
+
+            {positions[activeIndex].node.acfJobPostings
+              .minimumQualifications ? (
+              <div className="position-display__current--qualifications">
+                <h4>Minimum Qualifications</h4>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      positions[activeIndex].node.acfJobPostings
+                        .minimumQualifications,
+                  }}
+                />
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
@@ -143,6 +162,7 @@ const SectionStyled = styled.section`
 
   .position-display {
     display: flex;
+    align-items: flex-start;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;

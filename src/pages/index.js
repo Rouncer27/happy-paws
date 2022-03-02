@@ -26,8 +26,6 @@ const IndexPage = props => {
     video,
   } = props.data
   const heroData = hero.template.HomePage
-  console.log(seoInfo)
-
   return (
     <Layout>
       <Seo title="Home" />
@@ -271,6 +269,7 @@ export const homeQuery = graphql`
           acfJobPostings {
             minimumQualifications
             summaryPosition
+            whatWeOffer
           }
         }
       }
