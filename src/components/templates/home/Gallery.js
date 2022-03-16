@@ -81,36 +81,38 @@ const Gallery = ({ data }) => {
           </div>
         </div>
         <div className="images-right">
-          <div className="images-right__small images-right__small--topone">
-            <DivStyled>
-              <GatsbyImage
-                image={imgRightTopOneDisplay}
-                alt={imgRightTopOneAlt}
-                layout="fullWidth"
-                formats={["auto", "webp", "avif"]}
-              />
-            </DivStyled>
-          </div>
+          <div className="images-right__toprow">
+            <div className="images-right__small images-right__small--topone">
+              <DivStyled>
+                <GatsbyImage
+                  image={imgRightTopOneDisplay}
+                  alt={imgRightTopOneAlt}
+                  layout="fullWidth"
+                  formats={["auto", "webp", "avif"]}
+                />
+              </DivStyled>
+            </div>
 
-          <div className="images-right__small images-right__small--toptwo">
-            <DivStyled>
-              <GatsbyImage
-                image={imgRightTopTwoDisplay}
-                alt={imgRightTopTwoAlt}
-                layout="fullWidth"
-                formats={["auto", "webp", "avif"]}
-              />
-            </DivStyled>
-          </div>
-          <div className="images-right__small images-right__small--topthree">
-            <DivStyled>
-              <GatsbyImage
-                image={imgRightTopThreeDisplay}
-                alt={imgRightTopThreeAlt}
-                layout="fullWidth"
-                formats={["auto", "webp", "avif"]}
-              />
-            </DivStyled>
+            <div className="images-right__small images-right__small--toptwo">
+              <DivStyled>
+                <GatsbyImage
+                  image={imgRightTopTwoDisplay}
+                  alt={imgRightTopTwoAlt}
+                  layout="fullWidth"
+                  formats={["auto", "webp", "avif"]}
+                />
+              </DivStyled>
+            </div>
+            <div className="images-right__small images-right__small--topthree">
+              <DivStyled>
+                <GatsbyImage
+                  image={imgRightTopThreeDisplay}
+                  alt={imgRightTopThreeAlt}
+                  layout="fullWidth"
+                  formats={["auto", "webp", "avif"]}
+                />
+              </DivStyled>
+            </div>
           </div>
           <div className="images-right__bottom">
             <DivStyled>
@@ -194,36 +196,37 @@ const SectionStyled = styled.section`
       margin-left: 1.8rem;
     }
 
-    &__small {
-      width: 33.333333%;
+    &__toprow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      position: relative;
+      width: 100%;
       height: 12.5rem;
-      margin-bottom: 1.8rem;
+    }
+
+    &__small {
+      width: calc(33.333333% - 1rem);
 
       &--topone {
-        @media (min-width: 768px) {
-          position: absolute;
-          top: 0;
-          left: 0;
-        }
+        position: relative;
       }
 
       &--toptwo {
-        @media (min-width: 768px) {
-          position: absolute;
-          top: 0;
-          left: 33.333333%;
-        }
+        position: relative;
       }
 
       &--topthree {
         position: relative;
-        @media (min-width: 768px) {
-          position: absolute;
-          top: 0;
-          left: 66.666666%;
+        padding: 2rem;
+
+        div,
+        .gatsby-image-wrapper {
+          position: relative !important;
         }
 
-        .gatsby-image-wrapper {
+        ${
+          "" /* .gatsby-image-wrapper {
           top: 2rem;
           right: 2rem;
           bottom: 2rem;
@@ -239,6 +242,7 @@ const SectionStyled = styled.section`
             width: auto;
             height: auto;
           }
+        } */
         }
       }
     }
@@ -255,6 +259,18 @@ const SectionStyled = styled.section`
         margin-top: 0;
         margin-bottom: 0;
         width: 100%;
+      }
+
+      @media (min-width: 1025px) {
+        top: 14rem;
+      }
+
+      @media (min-width: 1200px) {
+        top: 16rem;
+      }
+
+      @media (min-width: 1600px) {
+        top: 19.5rem;
       }
     }
   }
