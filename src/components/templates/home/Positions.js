@@ -233,7 +233,12 @@ const ListItem = styled.li`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  ${props => console.log(props.activeposition)}
+  border-bottom: 0.2rem solid
+    ${props => (props.activeposition ? colors.colorPrimary : "transparent")};
+  color: ${props =>
+    props.activeposition ? colors.colorPrimary : colors.black};
+  line-height: 1;
+  margin-bottom: 1rem;
 
   button {
     text-align: right;
