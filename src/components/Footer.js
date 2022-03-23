@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 
 import { B1White, Btn1Blue, colors, medWrapper } from "../styles/helpers"
 
@@ -83,17 +83,32 @@ const Footer = () => {
               </StyledIcon>
             </ul>
           </div>
+          <div className="links__privacy">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/privacy-policy">Privacy Policy</Link>
+              </li>
+              <li>
+                <Link to="/disclaimer">Disclaimer</Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="logo">
-          <div className="logo__wrappper">
-            <GatsbyImage
-              image={logoDisplay}
-              alt={logoAlt}
-              layout="fullWidth"
-              formats={["auto", "webp", "avif"]}
-            />
-          </div>
+          <Link to="/">
+            <div className="logo__wrappper">
+              <GatsbyImage
+                image={logoDisplay}
+                alt={logoAlt}
+                layout="fullWidth"
+                formats={["auto", "webp", "avif"]}
+              />
+            </div>
+          </Link>
         </div>
       </div>
     </FooterStyled>
@@ -167,7 +182,7 @@ const FooterStyled = styled.footer`
       text-align: center;
 
       @media (min-width: 768px) {
-        width: 65%;
+        width: 35%;
         text-align: left;
       }
 
@@ -176,6 +191,30 @@ const FooterStyled = styled.footer`
         margin: 0;
         margin-bottom: 1rem;
         text-transform: uppercase;
+      }
+    }
+
+    &__privacy {
+      width: 100%;
+      margin-top: 2.5rem;
+      text-align: center;
+
+      @media (min-width: 768px) {
+        width: 30%;
+        margin-top: 0;
+        text-align: left;
+      }
+
+      ul {
+        width: 100%;
+
+        li {
+          ${B1White};
+
+          a {
+            ${B1White};
+          }
+        }
       }
     }
   }
